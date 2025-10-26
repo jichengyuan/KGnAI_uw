@@ -9,6 +9,7 @@ def query(query_string, token=""):
       response = requests.get('https://vision.semkg.org/sparql',
                              json={"query": query_string, token: token})
       _data=response.json()
+      print(_data)
       # data=[]
       # # pprint(_data)
       # for result in _data['results']['bindings']:
