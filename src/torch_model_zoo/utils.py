@@ -69,7 +69,7 @@ def check_instances_categories(file, annotations, class_names):
 def save_coco(file, images, annotations, categories):
     check_instances_categories(file, annotations, [category['name'] for category in categories])
     with open(file, 'wt') as coco:
-        json.dump({'images': images, 'annotations': annotations, 'categories': categories}, coco, indent=2,
+        json.dump({"info": "vkg_datases", 'images': images, 'annotations': annotations, 'categories': categories}, coco, indent=2,
                   sort_keys=False)
 
 
@@ -234,7 +234,7 @@ def anno_filter(anno_path, filter_cat_nms):
 
     if not categoreis_info:
         print("Warning: None of the filter categories were found in the annotation file.")
-        return {"images": [], "annotations": [], "categories": []}
+        return {"images": [], "annotations": [], "categories": [], "info": "vkg_datases"}
 
     # --- END OF CORRECTED LOGIC ---
 
@@ -260,7 +260,8 @@ def anno_filter(anno_path, filter_cat_nms):
     filter_annos = {
         "images": images_info,
         "annotations": annotations_info,
-        "categories": categoreis_info
+        "categories": categoreis_info,
+        "info": "vkg_datases"
     }
     
     return filter_annos
@@ -577,6 +578,7 @@ def visionkg2cocoDet(query_bindings: List[Dict]) -> Dict:
           'images': coco_images_info,
           'annotations': coco_annotations,
           'categories': coco_categories,
+          "info": "vkg_datases"
      }
      
      return coco_format_annotations

@@ -486,7 +486,7 @@ def _coco_remove_images_without_annotations(dataset, cat_list=None):
 def convert_to_coco_api(ds):
     coco_ds = COCO()
     ann_id = 1
-    dataset = {"images": [], "categories": [], "annotations": []}
+    dataset = {"images": [], "categories": [], "annotations": [], "info": "vkg_datases"}
     categories = set()
     for img_idx in range(len(ds)):
         img, targets = ds[img_idx]
