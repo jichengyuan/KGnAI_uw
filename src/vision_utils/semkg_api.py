@@ -15,4 +15,4 @@ def query(query_string, token=""):
              for key in result.keys():
                    tmp[key]=result[key]['value']
              data.append(tmp)
-       return _data
+      return _data
